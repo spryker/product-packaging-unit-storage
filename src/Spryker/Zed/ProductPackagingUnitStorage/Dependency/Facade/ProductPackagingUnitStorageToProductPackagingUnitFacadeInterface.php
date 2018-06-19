@@ -12,16 +12,23 @@ use Generated\Shared\Transfer\ProductPackagingLeadProductTransfer;
 interface ProductPackagingUnitStorageToProductPackagingUnitFacadeInterface
 {
     /**
-     * @param int $productAbstractId
+     * @param int $idProductAbstract
      *
      * @return \Generated\Shared\Transfer\ProductPackagingLeadProductTransfer|null
      */
-    public function getProductPackagingLeadProductByAbstractId(
-        int $productAbstractId
+    public function getProductPackagingLeadProductByIdProductAbstract(
+        int $idProductAbstract
     ): ?ProductPackagingLeadProductTransfer;
 
     /**
      * @return string
      */
     public function getDefaultPackagingUnitTypeName(): string;
+
+    /**
+     * @param array $productPackagingUnitTypeIds
+     *
+     * @return array
+     */
+    public function getIdProductAbstractsByIdProductPackagingUnitTypes(array $productPackagingUnitTypeIds): array;
 }
