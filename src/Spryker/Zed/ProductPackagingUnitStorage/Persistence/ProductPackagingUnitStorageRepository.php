@@ -48,7 +48,6 @@ class ProductPackagingUnitStorageRepository extends AbstractRepository implement
         $query = $this->getFactory()
             ->getSpyProductQuery()
                 ->filterByFkProductAbstract($idProductAbstract)
-                ->filterByIsActive(true)
             ->innerJoinWithSpyProductAbstract()
             ->innerJoinWithSpyProductPackagingUnit()
             ->leftJoinWithSpyProductPackagingLeadProduct()
