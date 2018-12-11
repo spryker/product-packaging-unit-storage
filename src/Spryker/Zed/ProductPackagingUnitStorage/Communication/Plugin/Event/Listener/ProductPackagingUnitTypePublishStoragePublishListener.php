@@ -7,21 +7,20 @@
 
 namespace Spryker\Zed\ProductPackagingUnitStorage\Communication\Plugin\Event\Listener;
 
-use Orm\Zed\ProductPackagingUnit\Persistence\Map\SpyProductPackagingLeadProductTableMap;
 use Spryker\Zed\Event\Dependency\Plugin\EventBulkHandlerInterface;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\ProductPackagingUnit\Dependency\ProductPackagingUnitEvents;
 
 /**
- * @deprecated Use `\Spryker\Zed\ProductPackagingUnitStorage\Communication\Plugin\Event\Listener\ProductPackagingLeadProductStoragePublishListener` and `\Spryker\Zed\ProductPackagingUnitStorage\Communication\Plugin\Event\Listener\ProductPackagingLeadProductStorageUnpublishListener` instead.
- *
  * @method \Spryker\Zed\ProductPackagingUnitStorage\Communication\ProductPackagingUnitStorageCommunicationFactory getFactory()
  * @method \Spryker\Zed\ProductPackagingUnitStorage\Business\ProductPackagingUnitStorageFacadeInterface getFacade()
  * @method \Spryker\Zed\ProductPackagingUnitStorage\ProductPackagingUnitStorageConfig getConfig()
  */
-class ProductPackagingLeadProductStorageListener extends AbstractPlugin implements EventBulkHandlerInterface
+class ProductPackagingUnitTypePublishStoragePublishListener extends AbstractPlugin implements EventBulkHandlerInterface
 {
     /**
+     * {@inheritdoc}
+     *
      * @api
      *
      * @param \Generated\Shared\Transfer\EventEntityTransfer[] $eventTransfers
@@ -31,19 +30,17 @@ class ProductPackagingLeadProductStorageListener extends AbstractPlugin implemen
      */
     public function handleBulk(array $eventTransfers, $eventName): void
     {
-        $productAbstractIds = $this->getFactory()
+        $productPackagingTypeIds = $this->getFactory()
             ->getEventBehaviorFacade()
-            ->getEventTransferForeignKeys($eventTransfers, SpyProductPackagingLeadProductTableMap::COL_FK_PRODUCT_ABSTRACT);
+            ->getEventTransferIds($eventTransfers);
+
+        $productAbstractIds = $this->getFacade()->findProductAbstractIdsByProductPackagingUnitTypeIds($productPackagingTypeIds);
 
         $publishEvents = $this->getPublishEvents();
 
         if (in_array($eventName, $publishEvents)) {
             $this->getFacade()->publishProductAbstractPackaging($productAbstractIds);
-
-            return;
         }
-
-        $this->getFacade()->unpublishProductAbstractPackaging($productAbstractIds);
     }
 
     /**
@@ -52,8 +49,8 @@ class ProductPackagingLeadProductStorageListener extends AbstractPlugin implemen
     protected function getPublishEvents(): array
     {
         return [
-            ProductPackagingUnitEvents::ENTITY_SPY_PRODUCT_PACKAGING_LEAD_PRODUCT_CREATE,
-            ProductPackagingUnitEvents::ENTITY_SPY_PRODUCT_PACKAGING_LEAD_PRODUCT_UPDATE,
+            ProductPackagingUnitEvents::ENTITY_SPY_PRODUCT_PACKAGING_UNIT_TYPE_CREATE,
+            ProductPackagingUnitEvents::ENTITY_SPY_PRODUCT_PACKAGING_UNIT_TYPE_UPDATE,
         ];
     }
 }
