@@ -9,18 +9,17 @@ namespace Spryker\Zed\ProductPackagingUnitStorage\Communication\Plugin\Event\Lis
 
 use Spryker\Zed\Event\Dependency\Plugin\EventBulkHandlerInterface;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
-use Spryker\Zed\ProductPackagingUnit\Dependency\ProductPackagingUnitEvents;
 
 /**
- * @deprecated Use `\Spryker\Zed\ProductPackagingUnitStorage\Communication\Plugin\Event\Listener\ProductAbstractPackagingStoragePublishListener` and `\Spryker\Zed\ProductPackagingUnitStorage\Communication\Plugin\Event\Listener\ProductAbstractPackagingStorageUnpublishListener` instead.
- *
  * @method \Spryker\Zed\ProductPackagingUnitStorage\Communication\ProductPackagingUnitStorageCommunicationFactory getFactory()
  * @method \Spryker\Zed\ProductPackagingUnitStorage\Business\ProductPackagingUnitStorageFacadeInterface getFacade()
  * @method \Spryker\Zed\ProductPackagingUnitStorage\ProductPackagingUnitStorageConfig getConfig()
  */
-class ProductAbstractPackagingStorageListener extends AbstractPlugin implements EventBulkHandlerInterface
+class ProductAbstractPackagingStorageUnpublishListener extends AbstractPlugin implements EventBulkHandlerInterface
 {
     /**
+     * {@inheritdoc}
+     *
      * @api
      *
      * @param \Generated\Shared\Transfer\EventEntityTransfer[] $eventTransfers
@@ -34,24 +33,6 @@ class ProductAbstractPackagingStorageListener extends AbstractPlugin implements 
             ->getEventBehaviorFacade()
             ->getEventTransferIds($eventTransfers);
 
-        $unpublishEvents = $this->getUnpublishEvents();
-
-        if (in_array($eventName, $unpublishEvents)) {
-            $this->getFacade()->unpublishProductAbstractPackaging($productAbstractIds);
-
-            return;
-        }
-
-        $this->getFacade()->publishProductAbstractPackaging($productAbstractIds);
-    }
-
-    /**
-     * @return string[]
-     */
-    protected function getUnpublishEvents(): array
-    {
-        return [
-            ProductPackagingUnitEvents::PRODUCT_ABSTRACT_PACKAGING_UNPUBLISH,
-        ];
+        $this->getFacade()->unpublishProductAbstractPackaging($productAbstractIds);
     }
 }
