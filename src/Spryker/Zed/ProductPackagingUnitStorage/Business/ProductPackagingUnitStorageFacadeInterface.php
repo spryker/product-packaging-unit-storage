@@ -7,6 +7,8 @@
 
 namespace Spryker\Zed\ProductPackagingUnitStorage\Business;
 
+use Generated\Shared\Transfer\FilterTransfer;
+
 interface ProductPackagingUnitStorageFacadeInterface
 {
     /**
@@ -46,4 +48,16 @@ interface ProductPackagingUnitStorageFacadeInterface
      * @return int[]
      */
     public function findProductIdsByProductPackagingUnitTypeIds(array $productPackagingUnitTypeIds): array;
+
+    /**
+     * Specification:
+     * - Retrieves ProductPackagingLeadProductTransfer collection according to given offset and limit.
+     *
+     * @api
+     *
+     * @param \Generated\Shared\Transfer\FilterTransfer $filterTransfer
+     *
+     * @return \Generated\Shared\Transfer\ProductPackagingLeadProductTransfer[]
+     */
+    public function getProductPackagingLeadProductTransfersByFilter(FilterTransfer $filterTransfer): array;
 }

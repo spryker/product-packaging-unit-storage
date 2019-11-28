@@ -92,6 +92,19 @@ class ProductPackagingUnitStorageRepository extends AbstractRepository implement
 
     /**
      * @param \Generated\Shared\Transfer\FilterTransfer $filterTransfer
+     *
+     * @return \Generated\Shared\Transfer\ProductPackagingLeadProductTransfer[]
+     */
+    public function getProductPackagingLeadProductTransfersByFilter(FilterTransfer $filterTransfer): array
+    {
+        return $this->buildQueryFromCriteria(
+            $this->getFactory()->getProductPackagingLeadProductQuery(),
+            $filterTransfer
+        )->find();
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\FilterTransfer $filterTransfer
      * @param int[] $productConcreteIds
      *
      * @return \Generated\Shared\Transfer\SpyProductPackagingUnitStorageEntityTransfer[]
