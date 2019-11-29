@@ -36,7 +36,7 @@ interface ProductPackagingUnitStorageRepositoryInterface
     /**
      * @param \Generated\Shared\Transfer\FilterTransfer $filterTransfer
      *
-     * @return \Generated\Shared\Transfer\SpyProductPackagingLeadProductEntityTransfer[]
+     * @return \Generated\Shared\Transfer\SpyProductPackagingUnitEntityTransfer[]
      */
     public function getProductPackagingLeadProductTransfersByFilter(FilterTransfer $filterTransfer): array;
 

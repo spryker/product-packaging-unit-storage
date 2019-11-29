@@ -72,7 +72,7 @@ class ProductPackagingUnitStorageFacade extends AbstractFacade implements Produc
      *
      * @param \Generated\Shared\Transfer\FilterTransfer $filterTransfer
      *
-     * @return \Generated\Shared\Transfer\ProductPackagingLeadProductTransfer[]
+     * @return \Generated\Shared\Transfer\SpyProductPackagingUnitEntityTransfer[]
      */
     public function getProductPackagingLeadProductTransfersByFilter(FilterTransfer $filterTransfer): array
     {
