@@ -15,6 +15,7 @@ use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\ProductPackagingUnit\Dependency\ProductPackagingUnitEvents;
 
 /**
+ * @method \Spryker\Zed\ProductPackagingUnitStorage\Persistence\ProductPackagingUnitStorageRepositoryInterface getRepository()
  * @method \Spryker\Zed\ProductPackagingUnitStorage\Business\ProductPackagingUnitStorageFacadeInterface getFacade()
  * @method \Spryker\Zed\ProductPackagingUnitStorage\Communication\ProductPackagingUnitStorageCommunicationFactory getFactory()
  * @method \Spryker\Zed\ProductPackagingUnitStorage\ProductPackagingUnitStorageConfig getConfig()
@@ -29,13 +30,13 @@ class ProductAbstractPackagingEventResourceBulkRepositoryPlugin extends Abstract
      * @param int $offset
      * @param int $limit
      *
-     * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer[]
+     * @return \Generated\Shared\Transfer\SpyProductPackagingUnitEntityTransfer[]
      */
     public function getData(int $offset, int $limit): array
     {
         $filterTransfer = $this->createFilterTransfer($offset, $limit);
 
-        return $this->getFacade()->getProductPackagingLeadProductTransfersByFilter($filterTransfer);
+        return $this->getRepository()->getProductPackagingLeadProductTransfersByFilter($filterTransfer);
     }
 
     /**

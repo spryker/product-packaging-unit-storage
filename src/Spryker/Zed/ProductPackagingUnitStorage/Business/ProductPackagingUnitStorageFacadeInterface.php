@@ -48,16 +48,4 @@ interface ProductPackagingUnitStorageFacadeInterface
      * @return int[]
      */
     public function findProductIdsByProductPackagingUnitTypeIds(array $productPackagingUnitTypeIds): array;
-
-    /**
-     * Specification:
-     * - Retrieves ProductPackagingLeadProductTransfer collection according to given offset and limit.
-     *
-     * @api
-     *
-     * @param \Generated\Shared\Transfer\FilterTransfer $filterTransfer
-     *
-     * @return \Generated\Shared\Transfer\SpyProductPackagingUnitEntityTransfer[]
-     */
-    public function getProductPackagingLeadProductTransfersByFilter(FilterTransfer $filterTransfer): array;
 }
