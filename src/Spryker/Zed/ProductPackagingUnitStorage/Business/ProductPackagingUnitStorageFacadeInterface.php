@@ -7,8 +7,6 @@
 
 namespace Spryker\Zed\ProductPackagingUnitStorage\Business;
 
-use Generated\Shared\Transfer\FilterTransfer;
-
 interface ProductPackagingUnitStorageFacadeInterface
 {
     /**
