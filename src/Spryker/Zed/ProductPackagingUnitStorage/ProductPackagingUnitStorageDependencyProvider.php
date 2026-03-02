@@ -39,11 +39,6 @@ class ProductPackagingUnitStorageDependencyProvider extends AbstractBundleDepend
      */
     public const FACADE_EVENT_BEHAVIOR = 'FACADE_EVENT_BEHAVIOR';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideCommunicationLayerDependencies(Container $container): Container
     {
         $container = parent::provideCommunicationLayerDependencies($container);
@@ -53,11 +48,6 @@ class ProductPackagingUnitStorageDependencyProvider extends AbstractBundleDepend
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideBusinessLayerDependencies(Container $container): Container
     {
         $container = parent::provideBusinessLayerDependencies($container);
@@ -67,11 +57,6 @@ class ProductPackagingUnitStorageDependencyProvider extends AbstractBundleDepend
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function providePersistenceLayerDependencies(Container $container): Container
     {
         $container = $this->addProductPropelQuery($container);
@@ -80,11 +65,6 @@ class ProductPackagingUnitStorageDependencyProvider extends AbstractBundleDepend
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductPropelQuery(Container $container): Container
     {
         $container->set(static::PROPEL_QUERY_PRODUCT, $container->factory(function () {
@@ -94,11 +74,6 @@ class ProductPackagingUnitStorageDependencyProvider extends AbstractBundleDepend
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductPackagingUnitPropelQuery(Container $container): Container
     {
         $container->set(static::PROPEL_QUERY_PRODUCT_PACKAGING_UNIT, $container->factory(function () {
@@ -108,11 +83,6 @@ class ProductPackagingUnitStorageDependencyProvider extends AbstractBundleDepend
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductPackagingUnitFacade(Container $container): Container
     {
         $container->set(static::FACADE_PRODUCT_PACKAGING_UNIT, function (Container $container) {
@@ -124,11 +94,6 @@ class ProductPackagingUnitStorageDependencyProvider extends AbstractBundleDepend
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addEventBehaviorFacade(Container $container): Container
     {
         $container->set(static::FACADE_EVENT_BEHAVIOR, function (Container $container) {

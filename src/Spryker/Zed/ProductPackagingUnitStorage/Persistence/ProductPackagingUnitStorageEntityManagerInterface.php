@@ -12,17 +12,7 @@ use Generated\Shared\Transfer\SpyProductPackagingUnitStorageEntityTransfer;
 
 interface ProductPackagingUnitStorageEntityManagerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductPackagingUnitStorageTransfer $productPackagingUnitStorageTransfer
-     *
-     * @return void
-     */
     public function saveProductPackagingUnitStorage(ProductPackagingUnitStorageTransfer $productPackagingUnitStorageTransfer): void;
 
-    /**
-     * @param \Generated\Shared\Transfer\SpyProductPackagingUnitStorageEntityTransfer $productPackagingUnitStorageEntity
-     *
-     * @return void
-     */
     public function deleteProductPackagingUnitStorage(SpyProductPackagingUnitStorageEntityTransfer $productPackagingUnitStorageEntity): void;
 }

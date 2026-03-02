@@ -22,33 +22,21 @@ use Spryker\Zed\ProductPackagingUnitStorage\ProductPackagingUnitStorageDependenc
  */
 class ProductPackagingUnitStoragePersistenceFactory extends AbstractPersistenceFactory
 {
-    /**
-     * @return \Orm\Zed\ProductPackagingUnitStorage\Persistence\SpyProductPackagingUnitStorageQuery
-     */
     public function createProductPackagingUnitStorageQuery(): SpyProductPackagingUnitStorageQuery
     {
         return SpyProductPackagingUnitStorageQuery::create();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnitStorage\Persistence\Mapper\ProductPackagingUnitStorageMapperInterface
-     */
     public function createProductPackagingUnitStorageMapper(): ProductPackagingUnitStorageMapperInterface
     {
         return new ProductPackagingUnitStorageMapper();
     }
 
-    /**
-     * @return \Orm\Zed\Product\Persistence\SpyProductQuery
-     */
     public function getSpyProductQuery(): SpyProductQuery
     {
         return $this->getProvidedDependency(ProductPackagingUnitStorageDependencyProvider::PROPEL_QUERY_PRODUCT);
     }
 
-    /**
-     * @return \Orm\Zed\ProductPackagingUnit\Persistence\SpyProductPackagingUnitQuery
-     */
     public function getProductPackagingUnitQuery(): SpyProductPackagingUnitQuery
     {
         return $this->getProvidedDependency(ProductPackagingUnitStorageDependencyProvider::PROPEL_QUERY_PRODUCT_PACKAGING_UNIT);

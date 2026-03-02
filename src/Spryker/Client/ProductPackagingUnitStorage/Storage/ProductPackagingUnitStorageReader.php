@@ -23,10 +23,6 @@ class ProductPackagingUnitStorageReader implements ProductPackagingUnitStorageRe
      */
     protected $productPackagingUnitStorageKeyGenerator;
 
-    /**
-     * @param \Spryker\Client\ProductPackagingUnitStorage\Dependency\Client\ProductPackagingUnitStorageToStorageClientInterface $storageClient
-     * @param \Spryker\Client\ProductPackagingUnitStorage\Storage\ProductPackagingUnitStorageKeyGeneratorInterface $productPackagingUnitStorageKeyGenerator
-     */
     public function __construct(
         ProductPackagingUnitStorageToStorageClientInterface $storageClient,
         ProductPackagingUnitStorageKeyGeneratorInterface $productPackagingUnitStorageKeyGenerator
@@ -35,11 +31,6 @@ class ProductPackagingUnitStorageReader implements ProductPackagingUnitStorageRe
         $this->productPackagingUnitStorageKeyGenerator = $productPackagingUnitStorageKeyGenerator;
     }
 
-    /**
-     * @param int $idProductConcrete
-     *
-     * @return \Generated\Shared\Transfer\ProductPackagingUnitStorageTransfer|null
-     */
     public function findProductPackagingUnitById(int $idProductConcrete): ?ProductPackagingUnitStorageTransfer
     {
         $key = $this->productPackagingUnitStorageKeyGenerator->generateKey(
@@ -50,11 +41,6 @@ class ProductPackagingUnitStorageReader implements ProductPackagingUnitStorageRe
         return $this->findProductPackagingUnitStorageTransfer($key);
     }
 
-    /**
-     * @param string $key
-     *
-     * @return \Generated\Shared\Transfer\ProductPackagingUnitStorageTransfer|null
-     */
     protected function findProductPackagingUnitStorageTransfer(string $key): ?ProductPackagingUnitStorageTransfer
     {
         $data = $this->storageClient->get($key);

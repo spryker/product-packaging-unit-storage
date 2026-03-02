@@ -24,10 +24,6 @@ class ItemTransferExpander implements ItemTransferExpanderInterface
      */
     protected $productMeasurementUnitStorageClient;
 
-    /**
-     * @param \Spryker\Client\ProductPackagingUnitStorage\Storage\ProductPackagingUnitStorageReaderInterface $productPackagingUnitStorageReader
-     * @param \Spryker\Client\ProductPackagingUnitStorage\Dependency\Client\ProductPackagingUnitStorageToProductMeasurementUnitStorageClientInterface $productMeasurementUnitStorageClient
-     */
     public function __construct(
         ProductPackagingUnitStorageReaderInterface $productPackagingUnitStorageReader,
         ProductPackagingUnitStorageToProductMeasurementUnitStorageClientInterface $productMeasurementUnitStorageClient
@@ -36,11 +32,6 @@ class ItemTransferExpander implements ItemTransferExpanderInterface
         $this->productMeasurementUnitStorageClient = $productMeasurementUnitStorageClient;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer
-     */
     public function expandWithDefaultPackagingUnit(ItemTransfer $itemTransfer): ItemTransfer
     {
         $this->assertItemTransfer($itemTransfer);
@@ -76,11 +67,6 @@ class ItemTransferExpander implements ItemTransferExpanderInterface
         return $itemTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return void
-     */
     protected function assertItemTransfer(ItemTransfer $itemTransfer): void
     {
         $itemTransfer
@@ -89,11 +75,6 @@ class ItemTransferExpander implements ItemTransferExpanderInterface
                 ->requireIdProductConcrete();
     }
 
-    /**
-     * @param int $idProduct
-     *
-     * @return \Generated\Shared\Transfer\ProductMeasurementSalesUnitTransfer|null
-     */
     protected function findDefaultProductMeasurementSalesUnitTransfer(int $idProduct): ?ProductMeasurementSalesUnitTransfer
     {
         $productMeasurementSalesUnitTransfers = $this->productMeasurementUnitStorageClient->findProductMeasurementSalesUnitByIdProduct($idProduct);

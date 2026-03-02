@@ -38,11 +38,6 @@ class ProductPackagingUnitStorageEventSubscriber extends AbstractPlugin implemen
         return $eventCollection;
     }
 
-    /**
-     * @param \Spryker\Zed\Event\Dependency\EventCollectionInterface $eventCollection
-     *
-     * @return void
-     */
     protected function addProductConcretePublishStorageListener(EventCollectionInterface $eventCollection): void
     {
         $eventCollection->addListenerQueued(ProductPackagingUnitEvents::PRODUCT_PACKAGING_UNIT_PUBLISH, new ProductPackagingUnitPublishStorageListener(), 0, null, $this->getConfig()->getEventQueueName());
@@ -51,11 +46,6 @@ class ProductPackagingUnitStorageEventSubscriber extends AbstractPlugin implemen
         $eventCollection->addListenerQueued(ProductPackagingUnitEvents::ENTITY_SPY_PRODUCT_PACKAGING_UNIT_TYPE_UPDATE, new ProductPackagingUnitTypePublishStorageListener(), 0, null, $this->getConfig()->getEventQueueName());
     }
 
-    /**
-     * @param \Spryker\Zed\Event\Dependency\EventCollectionInterface $eventCollection
-     *
-     * @return void
-     */
     protected function addProductConcreteUnpublishStorageListener(EventCollectionInterface $eventCollection): void
     {
         $eventCollection->addListenerQueued(ProductPackagingUnitEvents::PRODUCT_PACKAGING_UNIT_UNPUBLISH, new ProductPackagingUnitUnpublishStorageListener(), 0, null, $this->getConfig()->getEventQueueName());

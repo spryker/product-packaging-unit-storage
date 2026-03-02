@@ -22,10 +22,6 @@ class ProductPackagingUnitStorageWriter implements ProductPackagingUnitStorageWr
      */
     protected $productPackagingUnitStorageRepository;
 
-    /**
-     * @param \Spryker\Zed\ProductPackagingUnitStorage\Persistence\ProductPackagingUnitStorageEntityManagerInterface $productPackagingUnitStorageEntityManager
-     * @param \Spryker\Zed\ProductPackagingUnitStorage\Persistence\ProductPackagingUnitStorageRepositoryInterface $productPackagingUnitStorageRepository
-     */
     public function __construct(
         ProductPackagingUnitStorageEntityManagerInterface $productPackagingUnitStorageEntityManager,
         ProductPackagingUnitStorageRepositoryInterface $productPackagingUnitStorageRepository

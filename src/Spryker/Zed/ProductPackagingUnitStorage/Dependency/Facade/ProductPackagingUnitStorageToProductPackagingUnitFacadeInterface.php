@@ -9,10 +9,5 @@ namespace Spryker\Zed\ProductPackagingUnitStorage\Dependency\Facade;
 
 interface ProductPackagingUnitStorageToProductPackagingUnitFacadeInterface
 {
-    /**
-     * @param array $productPackagingUnitTypeIds
-     *
-     * @return array
-     */
     public function findProductIdsByProductPackagingUnitTypeIds(array $productPackagingUnitTypeIds): array;
 }

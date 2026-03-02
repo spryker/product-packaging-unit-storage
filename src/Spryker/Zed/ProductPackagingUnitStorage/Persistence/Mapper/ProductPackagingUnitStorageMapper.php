@@ -13,12 +13,6 @@ use Spryker\DecimalObject\Decimal;
 
 class ProductPackagingUnitStorageMapper implements ProductPackagingUnitStorageMapperInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\SpyProductPackagingUnitEntityTransfer $productPackagingUnitEntityTransfer
-     * @param \Generated\Shared\Transfer\ProductPackagingUnitStorageTransfer $productPackagingUnitStorageTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductPackagingUnitStorageTransfer
-     */
     public function mapProductPackagingUnitStorageEntityTransferToStorageTransfer(
         SpyProductPackagingUnitEntityTransfer $productPackagingUnitEntityTransfer,
         ProductPackagingUnitStorageTransfer $productPackagingUnitStorageTransfer
@@ -34,11 +28,6 @@ class ProductPackagingUnitStorageMapper implements ProductPackagingUnitStorageMa
             ->setTypeName($productPackagingUnitEntityTransfer->getProductPackagingUnitType()->getName());
     }
 
-    /**
-     * @param \Spryker\DecimalObject\Decimal|null $decimalValue
-     *
-     * @return \Spryker\DecimalObject\Decimal|null
-     */
     protected function trimDecimalValue(?Decimal $decimalValue): ?Decimal
     {
         if ($decimalValue === null) {

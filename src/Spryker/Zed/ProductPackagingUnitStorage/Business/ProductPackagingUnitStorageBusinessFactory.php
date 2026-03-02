@@ -20,9 +20,6 @@ use Spryker\Zed\ProductPackagingUnitStorage\ProductPackagingUnitStorageDependenc
  */
 class ProductPackagingUnitStorageBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnitStorage\Business\Storage\ProductPackagingUnitStorageWriterInterface
-     */
     public function createProductPackagingUnitStorageWriter(): ProductPackagingUnitStorageWriterInterface
     {
         return new ProductPackagingUnitStorageWriter(
@@ -31,9 +28,6 @@ class ProductPackagingUnitStorageBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnitStorage\Dependency\Facade\ProductPackagingUnitStorageToProductPackagingUnitFacadeInterface
-     */
     public function getProductPackagingUnitFacade(): ProductPackagingUnitStorageToProductPackagingUnitFacadeInterface
     {
         return $this->getProvidedDependency(ProductPackagingUnitStorageDependencyProvider::FACADE_PRODUCT_PACKAGING_UNIT);

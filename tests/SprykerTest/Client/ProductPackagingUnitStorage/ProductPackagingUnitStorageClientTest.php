@@ -35,9 +35,6 @@ class ProductPackagingUnitStorageClientTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testFindProductPackagingUnitById(): void
     {
         // Arrange
@@ -68,9 +65,6 @@ class ProductPackagingUnitStorageClientTest extends Unit
         $this->assertInstanceOf(ProductPackagingUnitStorageTransfer::class, $productPackagingUnitStorageTransfer);
     }
 
-    /**
-     * @return \Spryker\Client\ProductPackagingUnitStorage\ProductPackagingUnitStorageClientInterface
-     */
     protected function getProductPackagingUnitStorageClient(): ProductPackagingUnitStorageClientInterface
     {
         return $this->tester->getLocator()->productPackagingUnitStorage()->client();

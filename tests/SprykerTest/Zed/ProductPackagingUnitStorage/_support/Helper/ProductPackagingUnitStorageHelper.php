@@ -12,9 +12,6 @@ use Orm\Zed\ProductPackagingUnitStorage\Persistence\SpyProductPackagingUnitStora
 
 class ProductPackagingUnitStorageHelper extends Module
 {
-    /**
-     * @return void
-     */
     public function assertStorageDatabaseTableIsEmpty(): void
     {
         $query = SpyProductPackagingUnitStorageQuery::create();

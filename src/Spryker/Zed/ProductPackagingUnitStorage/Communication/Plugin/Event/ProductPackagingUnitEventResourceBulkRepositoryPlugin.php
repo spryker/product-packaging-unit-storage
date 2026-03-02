@@ -78,12 +78,6 @@ class ProductPackagingUnitEventResourceBulkRepositoryPlugin extends AbstractPlug
         return SpyProductPackagingUnitTableMap::COL_FK_PRODUCT;
     }
 
-    /**
-     * @param int $offset
-     * @param int $limit
-     *
-     * @return \Generated\Shared\Transfer\FilterTransfer
-     */
     protected function createFilterTransfer(int $offset, int $limit): FilterTransfer
     {
         return (new FilterTransfer())

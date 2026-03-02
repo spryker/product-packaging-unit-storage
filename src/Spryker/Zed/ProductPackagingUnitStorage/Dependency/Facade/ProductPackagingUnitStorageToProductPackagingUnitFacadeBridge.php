@@ -22,11 +22,6 @@ class ProductPackagingUnitStorageToProductPackagingUnitFacadeBridge implements P
         $this->productPackagingUnitFacade = $productPackagingUnitFacade;
     }
 
-    /**
-     * @param array $productPackagingUnitTypeIds
-     *
-     * @return array
-     */
     public function findProductIdsByProductPackagingUnitTypeIds(array $productPackagingUnitTypeIds): array
     {
         return $this->productPackagingUnitFacade->findProductIdsByProductPackagingUnitTypeIds($productPackagingUnitTypeIds);

@@ -19,9 +19,6 @@ use Spryker\Zed\ProductPackagingUnitStorage\ProductPackagingUnitStorageDependenc
  */
 class ProductPackagingUnitStorageCommunicationFactory extends AbstractCommunicationFactory
 {
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnitStorage\Dependency\Facade\ProductPackagingUnitStorageToEventBehaviorFacadeInterface
-     */
     public function getEventBehaviorFacade(): ProductPackagingUnitStorageToEventBehaviorFacadeInterface
     {
         return $this->getProvidedDependency(ProductPackagingUnitStorageDependencyProvider::FACADE_EVENT_BEHAVIOR);

@@ -58,9 +58,6 @@ class ProductPackagingUnitSynchronizationDataBulkPluginTest extends Unit
         });
     }
 
-    /**
-     * @return void
-     */
     public function testGetDataReturnsEmptyArrayWithInvalidIds(): void
     {
         $productPackagingUnitSynchronizationDataBulkPlugin = $this->createProductPackagingUnitSynchronizationDataBulkPlugin();
@@ -73,9 +70,6 @@ class ProductPackagingUnitSynchronizationDataBulkPluginTest extends Unit
         $this->assertEmpty($synchronizationDataTransfers);
     }
 
-    /**
-     * @return void
-     */
     public function testGetDataReturnsDataWithoutIds(): void
     {
         $this->tester->assertStorageDatabaseTableIsEmpty();
@@ -87,9 +81,6 @@ class ProductPackagingUnitSynchronizationDataBulkPluginTest extends Unit
         $this->assertNotEmpty($synchronizationDataTransfers);
     }
 
-    /**
-     * @return void
-     */
     protected function haveBoxProductPackagingUnit(): void
     {
         $itemProductConcreteTransfer = $this->tester->haveProduct();
@@ -106,9 +97,6 @@ class ProductPackagingUnitSynchronizationDataBulkPluginTest extends Unit
         $this->getProductPackagingUnitStorageFacade()->publishProductPackagingUnit([$boxProductConcreteTransfer->getIdProductConcrete()]);
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnitStorage\Business\ProductPackagingUnitStorageFacade
-     */
     protected function getProductPackagingUnitStorageFacade(): ProductPackagingUnitStorageFacade
     {
         $factory = new ProductPackagingUnitStorageBusinessFactory();
@@ -120,9 +108,6 @@ class ProductPackagingUnitSynchronizationDataBulkPluginTest extends Unit
         return $facade;
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnitStorage\Communication\Plugin\Synchronization\ProductPackagingUnitSynchronizationDataBulkPlugin
-     */
     protected function createProductPackagingUnitSynchronizationDataBulkPlugin(): ProductPackagingUnitSynchronizationDataBulkPlugin
     {
         return new ProductPackagingUnitSynchronizationDataBulkPlugin();

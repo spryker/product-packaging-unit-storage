@@ -20,17 +20,11 @@ use Spryker\Client\ProductPackagingUnitStorage\Storage\ProductPackagingUnitStora
 
 class ProductPackagingUnitStorageFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Client\ProductPackagingUnitStorage\Storage\ProductPackagingUnitStorageReaderInterface
-     */
     public function createProductPackagingUnitStorageReader(): ProductPackagingUnitStorageReaderInterface
     {
         return new ProductPackagingUnitStorageReader($this->getStorage(), $this->createProductPackagingUnitStorageKeyGenerator());
     }
 
-    /**
-     * @return \Spryker\Client\ProductPackagingUnitStorage\Expander\ItemTransferExpanderInterface
-     */
     public function createItemTransferExpander(): ItemTransferExpanderInterface
     {
         return new ItemTransferExpander(
@@ -39,33 +33,21 @@ class ProductPackagingUnitStorageFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\ProductPackagingUnitStorage\Dependency\Client\ProductPackagingUnitStorageToStorageClientInterface
-     */
     public function getStorage(): ProductPackagingUnitStorageToStorageClientInterface
     {
         return $this->getProvidedDependency(ProductPackagingUnitStorageDependencyProvider::CLIENT_STORAGE);
     }
 
-    /**
-     * @return \Spryker\Client\ProductPackagingUnitStorage\Storage\ProductPackagingUnitStorageKeyGeneratorInterface
-     */
     public function createProductPackagingUnitStorageKeyGenerator(): ProductPackagingUnitStorageKeyGeneratorInterface
     {
         return new ProductPackagingUnitStorageKeyGenerator($this->getSynchronizationService());
     }
 
-    /**
-     * @return \Spryker\Client\ProductPackagingUnitStorage\Dependency\Service\ProductPackagingUnitStorageToSynchronizationServiceInterface
-     */
     public function getSynchronizationService(): ProductPackagingUnitStorageToSynchronizationServiceInterface
     {
         return $this->getProvidedDependency(ProductPackagingUnitStorageDependencyProvider::SERVICE_SYNCHRONIZATION);
     }
 
-    /**
-     * @return \Spryker\Client\ProductPackagingUnitStorage\Dependency\Client\ProductPackagingUnitStorageToProductMeasurementUnitStorageClientInterface
-     */
     public function getProductMeasurementUnitStorageClient(): ProductPackagingUnitStorageToProductMeasurementUnitStorageClientInterface
     {
         return $this->getProvidedDependency(ProductPackagingUnitStorageDependencyProvider::CLIENT_PRODUCT_MEASUREMENT_UNIT_STORAGE);

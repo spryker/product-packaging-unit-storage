@@ -16,11 +16,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
  */
 class ProductPackagingUnitStorageEntityManager extends AbstractEntityManager implements ProductPackagingUnitStorageEntityManagerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductPackagingUnitStorageTransfer $productPackagingUnitStorageTransfer
-     *
-     * @return void
-     */
     public function saveProductPackagingUnitStorage(ProductPackagingUnitStorageTransfer $productPackagingUnitStorageTransfer): void
     {
         $productPackagingUnitStorageEntity = $this->getFactory()
@@ -33,11 +28,6 @@ class ProductPackagingUnitStorageEntityManager extends AbstractEntityManager imp
         $productPackagingUnitStorageEntity->save();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SpyProductPackagingUnitStorageEntityTransfer $productPackagingUnitStorageEntity
-     *
-     * @return void
-     */
     public function deleteProductPackagingUnitStorage(SpyProductPackagingUnitStorageEntityTransfer $productPackagingUnitStorageEntity): void
     {
         $productPackagingUnitStorageEntity = $this->getFactory()

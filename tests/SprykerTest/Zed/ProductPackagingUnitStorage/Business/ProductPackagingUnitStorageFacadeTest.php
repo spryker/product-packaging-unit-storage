@@ -92,9 +92,6 @@ class ProductPackagingUnitStorageFacadeTest extends Unit
         $this->getProductPackagingUnitStorageFacade()->unpublishProductPackagingUnit([$productConcreteTransfer->getIdProductConcrete()]);
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnitStorage\Business\ProductPackagingUnitStorageFacade
-     */
     protected function getProductPackagingUnitStorageFacade(): ProductPackagingUnitStorageFacade
     {
         $factory = new ProductPackagingUnitStorageBusinessFactory();

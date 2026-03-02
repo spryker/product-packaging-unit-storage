@@ -17,9 +17,6 @@ class ProductPackagingUnitStorageKeyGenerator implements ProductPackagingUnitSto
      */
     protected $synchronizationService;
 
-    /**
-     * @param \Spryker\Client\ProductPackagingUnitStorage\Dependency\Service\ProductPackagingUnitStorageToSynchronizationServiceInterface $synchronizationService
-     */
     public function __construct(
         ProductPackagingUnitStorageToSynchronizationServiceInterface $synchronizationService
     ) {
