@@ -40,4 +40,14 @@ class ProductPackagingUnitStorageConfig extends AbstractBundleConfig
      * @var string
      */
     public const PRODUCT_PACKAGING_UNIT_RESOURCE_NAME = 'product_packaging_unit';
+
+    /**
+     * Specification:
+     * - Queue name used for product packaging unit publish events.
+     *
+     * @api
+     *
+     * @var string
+     */
+    public const string PUBLISH_PRODUCT_PACKAGING_UNIT_QUEUE = 'publish.product_packaging_unit';
 }
