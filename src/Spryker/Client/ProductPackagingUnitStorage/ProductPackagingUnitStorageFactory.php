@@ -17,12 +17,17 @@ use Spryker\Client\ProductPackagingUnitStorage\Storage\ProductPackagingUnitStora
 use Spryker\Client\ProductPackagingUnitStorage\Storage\ProductPackagingUnitStorageKeyGeneratorInterface;
 use Spryker\Client\ProductPackagingUnitStorage\Storage\ProductPackagingUnitStorageReader;
 use Spryker\Client\ProductPackagingUnitStorage\Storage\ProductPackagingUnitStorageReaderInterface;
+use Spryker\Service\UtilEncoding\UtilEncodingServiceInterface;
 
 class ProductPackagingUnitStorageFactory extends AbstractFactory
 {
     public function createProductPackagingUnitStorageReader(): ProductPackagingUnitStorageReaderInterface
     {
-        return new ProductPackagingUnitStorageReader($this->getStorage(), $this->createProductPackagingUnitStorageKeyGenerator());
+        return new ProductPackagingUnitStorageReader(
+            $this->getStorage(),
+            $this->createProductPackagingUnitStorageKeyGenerator(),
+            $this->getUtilEncodingService(),
+        );
     }
 
     public function createItemTransferExpander(): ItemTransferExpanderInterface
@@ -46,6 +51,11 @@ class ProductPackagingUnitStorageFactory extends AbstractFactory
     public function getSynchronizationService(): ProductPackagingUnitStorageToSynchronizationServiceInterface
     {
         return $this->getProvidedDependency(ProductPackagingUnitStorageDependencyProvider::SERVICE_SYNCHRONIZATION);
+    }
+
+    public function getUtilEncodingService(): UtilEncodingServiceInterface
+    {
+        return $this->getProvidedDependency(ProductPackagingUnitStorageDependencyProvider::SERVICE_UTIL_ENCODING);
     }
 
     public function getProductMeasurementUnitStorageClient(): ProductPackagingUnitStorageToProductMeasurementUnitStorageClientInterface

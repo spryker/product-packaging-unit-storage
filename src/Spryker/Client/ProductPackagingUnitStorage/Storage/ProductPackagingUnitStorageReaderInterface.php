@@ -7,9 +7,15 @@
 
 namespace Spryker\Client\ProductPackagingUnitStorage\Storage;
 
+use Generated\Shared\Transfer\ProductPackagingUnitStorageCollectionTransfer;
+use Generated\Shared\Transfer\ProductPackagingUnitStorageCriteriaTransfer;
 use Generated\Shared\Transfer\ProductPackagingUnitStorageTransfer;
 
 interface ProductPackagingUnitStorageReaderInterface
 {
     public function findProductPackagingUnitById(int $idProductConcrete): ?ProductPackagingUnitStorageTransfer;
+
+    public function getProductPackagingUnitStorageCollection(
+        ProductPackagingUnitStorageCriteriaTransfer $productPackagingUnitStorageCriteriaTransfer
+    ): ProductPackagingUnitStorageCollectionTransfer;
 }

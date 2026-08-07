@@ -47,4 +47,24 @@
     <transfer name="ProductPackagingLeadProduct">
     </transfer>
 
+    <transfer name="ProductPackagingUnitStorageCollection" strict="true">
+        <property name="productPackagingUnitStorages" type="ProductPackagingUnitStorage[]" singular="productPackagingUnitStorage"/>
+    </transfer>
+
+    <transfer name="ProductPackagingUnitStorageCriteria" strict="true">
+        <property name="productPackagingUnitStorageConditions" type="ProductPackagingUnitStorageConditions"/>
+        <property name="sortCollection" type="Sort[]" singular="sort"/>
+        <property name="pagination" type="Pagination"/>
+    </transfer>
+
+    <transfer name="ProductPackagingUnitStorageConditions" strict="true">
+        <property name="productIds" type="int[]" singular="idProduct"/>
+    </transfer>
+
+    <transfer name="Sort">
+    </transfer>
+
+    <transfer name="Pagination">
+    </transfer>
+
 </transfers>

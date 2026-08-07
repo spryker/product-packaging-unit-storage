@@ -40,4 +40,9 @@ class ProductPackagingUnitStorageClientTester extends Actor
         $productPackagingUnitStorageToStorageClientBridge->method('get')->willReturn($content);
         $this->setDependency(ProductPackagingUnitStorageDependencyProvider::CLIENT_STORAGE, $productPackagingUnitStorageToStorageClientBridge);
     }
+
+    public function setStorageDependency(ProductPackagingUnitStorageToStorageClientInterface $productPackagingUnitStorageToStorageClientBridge): void
+    {
+        $this->setDependency(ProductPackagingUnitStorageDependencyProvider::CLIENT_STORAGE, $productPackagingUnitStorageToStorageClientBridge);
+    }
 }

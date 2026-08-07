@@ -16,4 +16,11 @@ interface ProductPackagingUnitStorageKeyGeneratorInterface
      * @return string
      */
     public function generateKey($resourceName, $resourceId): string;
+
+    /**
+     * @param array<int> $resourceIds
+     *
+     * @return array<string>
+     */
+    public function generateKeys(string $resourceName, array $resourceIds): array;
 }

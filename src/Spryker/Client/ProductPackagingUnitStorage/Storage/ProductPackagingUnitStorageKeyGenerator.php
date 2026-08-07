@@ -39,4 +39,20 @@ class ProductPackagingUnitStorageKeyGenerator implements ProductPackagingUnitSto
             ->getStorageKeyBuilder($resourceName)
             ->generateKey($synchronizationDataTransfer);
     }
+
+    /**
+     * @param array<int> $resourceIds
+     *
+     * @return array<string>
+     */
+    public function generateKeys(string $resourceName, array $resourceIds): array
+    {
+        $storageKeys = [];
+
+        foreach ($resourceIds as $idResource) {
+            $storageKeys[] = $this->generateKey($resourceName, $idResource);
+        }
+
+        return $storageKeys;
+    }
 }
